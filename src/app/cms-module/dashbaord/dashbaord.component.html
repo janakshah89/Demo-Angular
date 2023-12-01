@@ -2,12 +2,12 @@
   <ng-container *ngIf="factResponse">
     <mat-card class="fact-card col-4" *ngIf="factResponse.responseSuccess">
       <mat-card-header>
-        <mat-card-title>Fact Card</mat-card-title>
+        <mat-card-title>Cat Fact</mat-card-title>
         <button mat-icon-button (click)="refreshFact()">
           <mat-icon>refresh</mat-icon>
         </button>
       </mat-card-header>
-      <img mat-card-image src="https://placehold.jp/400x300.png">
+      <img mat-card-image src="/assets/images/cat.png">
       <mat-card-content>
         <p>{{factResponse.responseData.fact}}</p>
       </mat-card-content>

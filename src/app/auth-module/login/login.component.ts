@@ -25,7 +25,7 @@ export class LoginComponent {
     private _router: Router
   ) {
     this.formGroup = this.formBuilder.group({
-      username: ['', Validators.compose([ Validators.required, Validators.email ])]
+      username: ['', Validators.compose([ Validators.required ])]
     })
   }
 
