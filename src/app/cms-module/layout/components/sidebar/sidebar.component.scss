@@ -1,0 +1,26 @@
+:host {
+  &.app-sidebar {
+    .company-info {
+      .company-label {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 0;
+      }
+      p {
+        text-align: center;
+        font-weight: 100;
+      }
+    }
+    .main-navigation {
+      button {
+        width: 100%;
+        height: 48px;
+        justify-content: start;
+        padding: 0 1.5rem;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  }
+}

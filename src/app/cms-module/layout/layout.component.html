@@ -1,0 +1,10 @@
+<mat-drawer-container class="main-container" autosize>
+  <app-header [isSidebarOpen]="showSidebar" (menuClick)="showSidebar = $event"></app-header>
+  <mat-drawer [mode]="sidebarMode" [opened]="showSidebar" class="main-sidenav" mode="side">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <div class="page-outlate">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</mat-drawer-container>

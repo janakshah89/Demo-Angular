@@ -1,0 +1,75 @@
+<div class="dashboard-wraper d-flex gap-3">
+  <ng-container *ngIf="factResponse">
+    <mat-card class="fact-card col-4" *ngIf="factResponse.responseSuccess">
+      <mat-card-header>
+        <mat-card-title>Fact Card</mat-card-title>
+        <button mat-icon-button (click)="refreshFact()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </mat-card-header>
+      <img mat-card-image src="https://placehold.jp/400x300.png">
+      <mat-card-content>
+        <p>{{factResponse.responseData.fact}}</p>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  <mat-card class="form-card col-7">
+    <mat-card-header class="mb-3">
+      <mat-card-title>Sunrise sunset</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="row" [formGroup]="formGroup" (ngSubmit)="formSubmit()">
+        <div class="form-group col-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Lat</mat-label>
+            <input matInput formControlName="lat" type="text">
+          </mat-form-field>
+        </div>
+        <div class="form-group col-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Lan</mat-label>
+            <input matInput formControlName="lan" type="text">
+          </mat-form-field>
+        </div>
+        <div class="form-group col-6">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Choose a date</mat-label>
+            <input matInput formControlName="date" [matDatepicker]="datepicker">
+            <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker>
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+          </mat-form-field>
+        </div>
+
+
+        <div class="form-group col-12">
+          <button mat-raised-button color="primary" class="w-100" type="submit">
+            Login
+          </button>
+        </div>
+      </form>
+
+      <ng-container *ngIf="sunsineResponse">
+        <h2 class="mt-4">Sunrise / sunset information </h2>
+        <table class="table table-bordered" *ngIf="sunsineResponse.responseData.results as detail">
+            <tr>
+              <th>Sunrise</th>
+              <td>{{detail.sunrise}}</td>
+            </tr>
+            <tr>
+              <th>Sunset</th>
+              <td>{{detail.sunset}}</td>
+            </tr>
+        </table>
+      </ng-container>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+

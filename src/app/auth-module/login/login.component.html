@@ -1,0 +1,20 @@
+<div class="login-container">
+  <form [formGroup]="formGroup" (ngSubmit)="login()">
+    <h2>SuperCompany Login</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" type="email">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-error *ngIf="isValidHasError('username','required') && isFieldErrorMsgShow('username')">
+        Username is required
+      </mat-error>
+      <mat-error *ngIf="isValidHasError('username', 'email') && isFieldErrorMsgShow('username')">
+        Invalid username
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="w-100" type="submit">
+      Login
+    </button>
+  </form>
+</div>

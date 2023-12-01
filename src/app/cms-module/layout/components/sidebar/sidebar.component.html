@@ -1,0 +1,19 @@
+<aside class="sidebar-container">
+  <div class="company-info">
+    <h2 class="company-label">
+      Super Company
+    </h2>
+    <p>Welcome {{getUserName()}}!</p>
+  </div>
+
+  <nav class="main-navigation">
+    <button mat-raised-button [color]="dashboard.isActive ? 'primary' : ''" [routerLink]="'/dashboard'" routerLinkActive #dashboard="routerLinkActive">
+      <mat-icon>dashboard</mat-icon>
+      Dashbaord
+    </button>
+    <button mat-raised-button  [color]="contact.isActive ? 'primary' : ''" routerLinkActive #contact="routerLinkActive" [routerLink]="'/contact'">
+      <mat-icon>perm_contact_calendar</mat-icon>
+      Contacts
+    </button>
+  </nav>
+</aside>

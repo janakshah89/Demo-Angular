@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+  <button *ngIf="isMobileMenuShow" mat-icon-button aria-label="Main Menu" (click)="toggleSlidebar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="cms-spacer"></span>
+  <button mat-icon-button >
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="notifications" >
+    <mat-icon>notification_important</mat-icon>
+  </button>
+  <button mat-button class="user-avatar-wraper d-flex" [matMenuTriggerFor]="userProfile">
+    <span>{{getUserName()}}</span>
+    <div class="user-avatar">
+      <img src="assets/images/user-avatar.jpg" alt="Profile image">
+    </div>
+  </button>
+</mat-toolbar>
+
+
+<mat-menu #notifications="matMenu">
+  <button mat-menu-item>
+    <mat-icon>info</mat-icon>
+    <span>John invited you</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>info</mat-icon>
+    <span>You have message from Peter</span>
+  </button>
+</mat-menu>
+
+<mat-menu #userProfile="matMenu">
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Password change</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </button>
+</mat-menu>

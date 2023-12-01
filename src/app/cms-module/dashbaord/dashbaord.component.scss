@@ -1,0 +1,11 @@
+.fact-card {
+  .mat-mdc-card-content {
+    padding-top: 1rem;
+  }
+  .mat-mdc-card-header {
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
