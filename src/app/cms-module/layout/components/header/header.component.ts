@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DeviceDetectService } from '../../../../core/services/device-detect.service';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule} from '@angular/material/dialog';
+import { merge } from 'rxjs';
 
 
 @Component({
@@ -42,15 +43,12 @@ export class HeaderComponent {
     private _router: Router,
     private deviceDetectService: DeviceDetectService,
   ) {
-    this.deviceDetectService.getDevice('Small').subscribe((d) => {
-      if (d) {
-        this.isMobileMenuShow = d;
-      }
-
-    })
-    this.deviceDetectService.getDevice('XSmall').subscribe((d) => {
-      if (d) {
-        this.isMobileMenuShow = d;
+    merge(this.deviceDetectService.getDevice('Small'),  this.deviceDetectService.getDevice('XSmall'))
+    .subscribe((d) => {
+      if (d)  {
+        this.isMobileMenuShow = true
+      } else {
+        this.isMobileMenuShow = false
       }
     })
   }

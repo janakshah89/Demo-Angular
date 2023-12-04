@@ -5,6 +5,7 @@ import {MatDrawerMode, MatSidenavModule} from '@angular/material/sidenav';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DeviceDetectService } from '../../core/services/device-detect.service';
+import { merge } from 'rxjs';
 
 
 @Component({
@@ -20,17 +21,15 @@ export class LayoutComponent {
   constructor(
     private deviceDetectService: DeviceDetectService,
   ) {
-    this.deviceDetectService.getDevice('Small').subscribe((d) => {
-      if (d) {
+    merge(this.deviceDetectService.getDevice('Small'),  this.deviceDetectService.getDevice('XSmall'))
+    .subscribe((d) => {
+      if (d)  {
         this.showSidebar = false;
         this.sidebarMode = 'over'
-      };
-    })
-    this.deviceDetectService.getDevice('XSmall').subscribe((d) => {
-      if (d) {
-        this.showSidebar = false;
-        this.sidebarMode = 'over'
-      };
+      } else {
+        this.showSidebar = true;
+        this.sidebarMode = 'side'
+      }
     })
   }
 }

@@ -10,7 +10,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     provideRouter(routes,
       withPreloading(PreloadAllModules),
-      withDebugTracing(),
+      // withDebugTracing(),
     ),
     provideAnimations()
   ]
